@@ -3,6 +3,7 @@ import "./Feed.css";
 import Post from "./Post";
 import TweetBox from "./TweetBox";
 import db from "./firebase";
+import FlipMove from "react-flip-move";
 
 const Feed = () => {
   const [posts, setPosts] = useState([]);
@@ -19,14 +20,20 @@ const Feed = () => {
         <h2>Home</h2>
       </div>
       <TweetBox />
-      <Post
-        displayName="mr watt"
-        username="watt__177"
-        verified={true}
-        text="i built a twitter clone using Reactjs 🔥"
-        avatar="https://lh3.googleusercontent.com/ogw/ADGmqu8Q7uG_nsWabwL6VURPnHYoEz8zgW0XuIxQmnDQ=s83-c-mo"
-        image="https://www.freecodecamp.org/news/content/images/2020/02/Ekran-Resmi-2019-11-18-18.08.13.png"
-      />
+
+      <FlipMove>
+        {posts.map((post) => (
+          <Post
+            key={post.text}
+            displayName={post.displayName}
+            username={post.username}
+            verified={post.verified}
+            text={post.text}
+            avatar={post.avatar}
+            image={post.image}
+          />
+        ))}
+      </FlipMove>
     </div>
   );
 };
