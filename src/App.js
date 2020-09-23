@@ -1,11 +1,11 @@
 import React from "react";
-
 import "./App.css";
+import Sidebar from "./Sidebar";
 
 function App() {
   return (
     <div className="app">
-      <h1>twitterClone</h1>
+      <Sidebar />
       {/* sidebar */}
       {/* feed */}
       {/* Widgets */}
